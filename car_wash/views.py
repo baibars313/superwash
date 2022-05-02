@@ -51,3 +51,19 @@ class ChangeStatus(APIView):
     #     snippet = self.get_object(pk)
     #     snippet.delete()
     #     return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+
+class Checkuser(APIView):
+
+    def get_object(self, pk):
+        try:
+            return AllNfts.objects.filter(status=pk)
+        except AllNfts.DoesNotExist:
+            raise Http404
+
+    def get(self, request, pk, format=None):
+        snippet = self.get_object(pk)
+        serializer = model_serializer(snippet)
+        return Response({"msg":"success","data":serializer.data})
+

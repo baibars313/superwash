@@ -134,7 +134,8 @@ STATIC_URL = 'static/'
 STATIC_ROOT = "/static/"
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000"
+    "http://localhost:3000",
+    "http://doracmarket.herokuapp.com"
 ]
 
 # Default primary key field type
