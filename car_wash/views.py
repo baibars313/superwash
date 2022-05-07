@@ -57,7 +57,7 @@ class Checkuser(APIView):
     def get(self, request, pk, format=None):
         snippet = self.get_object(pk)
         serializer = User_serializer(snippet)
-        return Response({"msg":"success"})
+        return Response({"msg":"success","data":[serializer.data]})
 
 
 
